@@ -3,7 +3,7 @@ create database db_gerenciamento_estoque;
 use db_gerenciamento_estoque;
 
 create table produtos(
-idProdutos int not null,
+idProdutos int not null AUTO_INCREMENT,
 nome varchar(45) not null,
 quantidade_estoque int not null,
 preco_unitario double not null,
@@ -27,10 +27,11 @@ VALUES
 select * from produtos;
 
 create table clientes(
-idClientes int not null,
+idClientes int not null AUTO_INCREMENT,
 cpf varchar(45) not null,
 nome varchar(45) not null,
-telefone long not null
+telefone long not null,
+primary key (idClientes)
 );
 
 select * from clientes;
@@ -47,3 +48,13 @@ VALUES
   (8, '333.222.111-00', 'Marcos Souza', '(81) 2109-8765'),
   (9, '123.321.123-32', 'Fernanda Lima', '(91) 1098-7654'),
   (10, '543.654.765-87', 'Guilherme Rodrigues', '(01) 8765-4321');
+
+CREATE TABLE vendas (
+	idProduto_FK INT NOT NULL auto_increment,
+	CONSTRAINT FKProduto FOREIGN KEY (idProduto_FK) REFERENCES produtos (idProdutos),
+    idCliente_FK INT NOT NULL,
+    CONSTRAINT FKCliente FOREIGN KEY (idCliente_FK) REFERENCES clientes (idClientes),
+	nomeProduto VARCHAR(45) NOT NULL,
+    nomeCliente VARCHAR(45) NOT NULL,
+    precoProduto DOUBLE NOT NULL
+    );

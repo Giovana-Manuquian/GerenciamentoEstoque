@@ -17,12 +17,14 @@ public class Products {
         System.out.println("----------------------------------------------------");
         System.out.println("Code:                                               ");
         this.code = scanner.nextInt();
+        scanner.nextLine();
         System.out.println("Your name:                                          ");
         this.name = scanner.nextLine();
         System.out.println("Quantity in stock:                                  ");
         this.quantityStock = scanner.nextInt();
         System.out.println("Unit Price: U$                                      ");
         this.unitPrice = scanner.nextDouble();
+        scanner.nextLine();
         System.out.println("Provide the supplier:                               ");
         this.supplier = scanner.nextLine();
     }

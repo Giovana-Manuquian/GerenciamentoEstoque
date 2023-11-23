@@ -11,7 +11,7 @@ public class Customer {
 
     public void registerCustomer() {
         System.out.println("----------------------------------------------------");
-        System.out.println("             Register of Customer Information        ");
+        System.out.println("             Register of Customer Information       ");
         System.out.println("----------------------------------------------------");
         System.out.println("CPF:                                                ");
         this.cpf = scanner.nextLine();

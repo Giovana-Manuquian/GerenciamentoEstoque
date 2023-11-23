@@ -15,8 +15,8 @@ public class CustomerController {
     public void registerCustomer(Customer newCustomer) throws SQLException {
         Statement statement = objConection.createStatement();
 
-        String queryRegister = "INSERT INTO clientes (cpf, nome, telefone) values ('" +
-                newCustomer.getCpf() + "','" + newCustomer.getName() +
+        String queryRegister = "INSERT INTO clientes (cpf, nome, telefone) values (" +
+                newCustomer.getCpf() + ",'" + newCustomer.getName() +
                 "','" + newCustomer.getPhoneNumber() + "')";
 
         statement.executeUpdate(queryRegister);
@@ -33,10 +33,10 @@ public class CustomerController {
         Customer customer = new Customer();
 
         while(resultSet.next()){
-            customer.setIdCustomer(resultSet.getInt("idCustomer"));
+            customer.setIdCustomer(resultSet.getInt("idClientes"));
             customer.setCpf(resultSet.getString("cpf"));
-            customer.setName(resultSet.getString("name"));
-            customer.setPhoneNumber(resultSet.getString("telephone"));
+            customer.setName(resultSet.getString("nome"));
+            customer.setPhoneNumber(resultSet.getString("telefone"));
 
             System.out.println(customer.getIdCustomer());
             System.out.println(customer.getCpf());
@@ -47,7 +47,7 @@ public class CustomerController {
     }
 
     public void deleteCustomer(String cpf) throws SQLException {
-        System.out.println("Delete customer with CPF: " + cpf);
+        System.out.println("Delete customer with CPF: '" + cpf + "'");
 
         Statement statement = objConection.createStatement();
 
@@ -64,17 +64,17 @@ public class CustomerController {
     public void consultCustomer(String cpf) throws SQLException {
         Statement statement = objConection.createStatement();
 
-        String querySearch = "SELECT * FROM clientes WHERE cpf = '" + cpf + "'";
+        String querySearch = "SELECT * FROM clientes WHERE cpf = " + cpf;
 
         ResultSet resultSet = statement.executeQuery(querySearch);
 
         Customer customer = new Customer();
 
         while(resultSet.next()){
-            customer.setIdCustomer(resultSet.getInt("idCustomer"));
+            customer.setIdCustomer(resultSet.getInt("idClientes"));
             customer.setCpf(resultSet.getString("cpf"));
-            customer.setName(resultSet.getString("name"));
-            customer.setPhoneNumber(resultSet.getString("telephone"));
+            customer.setName(resultSet.getString("nome"));
+            customer.setPhoneNumber(resultSet.getString("telefone"));
 
             System.out.println(customer.getIdCustomer());
             System.out.println(customer.getCpf());

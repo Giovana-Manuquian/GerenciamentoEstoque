@@ -18,8 +18,8 @@ public class ProductsController {
         String queryRegister = "INSERT INTO produtos (idProdutos, " +
                 "nome, quantidade_estoque, preco_unitario, fornecedor) values (" +
                 newProducts.getIdProducts() + ",'" + newProducts.getName() +
-                "','" + newProducts.getQuantityStock() + "','" + newProducts.getUnitPrice() +
-                "','" + newProducts.getSupplier() + ")";
+                "'," + newProducts.getQuantityStock() + "," + newProducts.getUnitPrice() +
+                ",'" + newProducts.getSupplier() + "')";
 
         statement.executeUpdate(queryRegister);
         System.out.println("Product registered successfully");
@@ -35,10 +35,10 @@ public class ProductsController {
 
         while(resultSet.next()){
             products.setIdProducts(resultSet.getInt("idProdutos"));
-            products.setName(resultSet.getString("name"));
-            products.setQuantityStock(resultSet.getInt("quantityStock"));
-            products.setUnitPrice(resultSet.getInt("unitPrice"));
-            products.setSupplier(resultSet.getString("supplier"));
+            products.setName(resultSet.getString("nome"));
+            products.setQuantityStock(resultSet.getInt("quantidade_estoque"));
+            products.setUnitPrice(resultSet.getInt("preco_unitario"));
+            products.setSupplier(resultSet.getString("fornecedor"));
 
             System.out.println(products.getIdProducts());
             System.out.println(products.getName());
@@ -72,10 +72,10 @@ public class ProductsController {
 
         while(resultSet.next()){
             products.setIdProducts(resultSet.getInt("idProdutos"));
-            products.setName(resultSet.getString("name"));
-            products.setQuantityStock(resultSet.getInt("quantityStock"));
-            products.setUnitPrice(resultSet.getInt("unitPrice"));
-            products.setSupplier(resultSet.getString("supplier"));
+            products.setName(resultSet.getString("nome"));
+            products.setQuantityStock(resultSet.getInt("quantidade_estoque"));
+            products.setUnitPrice(resultSet.getInt("preco_unitario"));
+            products.setSupplier(resultSet.getString("fornecedor"));
 
             System.out.println(products.getIdProducts());
             System.out.println(products.getName());
