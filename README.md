@@ -66,6 +66,10 @@ O projeto está estruturado em pacotes Java para melhor organização:
 
 3. Siga as instruções no console para interagir com o sistema.
 
+## Autora
+
+Giovana-Manuquian
+
 ## Licença
 
 Este projeto está licenciado sob a [MIT License](LICENSE).
